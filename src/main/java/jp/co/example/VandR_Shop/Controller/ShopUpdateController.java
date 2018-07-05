@@ -2,12 +2,20 @@ package jp.co.example.VandR_Shop.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.example.VandR_Shop.Form.SeatUpdateForm;
+import jp.co.example.VandR_Shop.Form.ShopLoginForm;
 import jp.co.example.VandR_Shop.entity.ShopSessionInfo;
 import jp.co.example.VandR_Shop.service.impl.ShopAdminService;
 
+@Controller
 public class ShopUpdateController {
 	@Autowired
 	private ShopSessionInfo sessionInfo;
@@ -19,14 +27,23 @@ public class ShopUpdateController {
 	private ShopAdminService shopAdminService;
 
 	@RequestMapping("/shopSeatsUpdateInput")
-	public String update(Model model) {
-		return "/shopSeatsUpdateInput";
+	public String seatsInput(Model model) {
+		//ショップ情報をセッションにいれておく
+		model.addAttribute("sAdmin",sessionInfo.getLoginShop());
+		return "shopSeatsUpdateInput";
 	}
 
-//	@RequestMapping("/shopSeatsUpdateInput")
-//	public String update(@ModelAttribute("shopLoginForm") ShopLoginForm form, Model model) {
-//	return "shopSeatsUpdateInput";
-//	}
+	@RequestMapping("/shopProfileUpdateInput")
+	public String profileInput(Model model) {
+		model.addAttribute("sAdmin",sessionInfo.getLoginShop());
+		return "shopProfileUpdateInput";
+	}
+
+	@RequestMapping(value ="/shopSeatsUpdate" , method = RequestMethod.POST)
+	public String seatsUpdate(@Validated @ModelAttribute("seatUpdateForm") SeatUpdateForm form, BindingResult bindingResult,
+			Model model) {
+	return "shopSeatsUpdateResult";
+	}
 
 //	@RequestMapping(value = "/updateInput", method = RequestMethod.POST)
 //	public String updateInput(@Validated @ModelAttribute("seatUpdateForm") SeatUpdateForm form, BindingResult bindingResult,

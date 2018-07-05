@@ -97,6 +97,7 @@
 					</div>
 				</div>
 				<a href="shopProfileUpdateInput" class="btn btn-warning btn-block">店舗詳細を変更する</a>
+				<a href="shopSeatsUpdateInput" class="btn btn-warning btn-block">席情報を変更する</a>
 				<a href="shopMenu" class="btn btn-default btn-block">店舗メニューへ</a>
 			</div>
 		</div>

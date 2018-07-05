@@ -56,6 +56,12 @@ public class ShopAuthController {
 			return "shopMenu";
 		}
 	}
+	
+	@RequestMapping("/shopProfile")
+	public String profile(Model model) {
+		model.addAttribute("sAdmin",sessionInfo.getLoginShop());
+		return "shopProfile";
+	}
 
 	@RequestMapping(value = "/shopLogout", method = RequestMethod.GET)
 	public String logout(Model model) {

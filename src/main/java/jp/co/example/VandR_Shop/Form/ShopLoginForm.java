@@ -1,23 +1,24 @@
 package jp.co.example.VandR_Shop.Form;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /*
  * ログイン画面用フォーム
  */
 public class ShopLoginForm {
 
-	@NotBlank
-	private String shopId;
+	@NotNull
+	private Integer shopId;
 
 	@NotBlank
 	private String password;
 
-	public String getShopId() {
+	public Integer getShopId() {
 		return shopId;
 	}
 
-	public void setShopId(String _shopId) {
+	public void setShopId(Integer _shopId) {
 		this.shopId = _shopId;
 	}
 

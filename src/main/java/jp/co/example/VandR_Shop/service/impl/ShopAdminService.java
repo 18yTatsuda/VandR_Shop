@@ -16,8 +16,8 @@ public class ShopAdminService implements IShopAdminService {
 	private ShopAdminDao shopAdminDao;
 
 	@Override
-	public ShopAdmin authentication(String id, String password) {
-		return shopAdminDao.findByIdAndPassword(id, password);
+	public ShopAdmin authentication(Integer integer, String password) {
+		return shopAdminDao.findByIdAndPassword(integer, password);
 	}
 
 }

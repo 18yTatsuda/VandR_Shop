@@ -16,6 +16,7 @@ import jp.co.example.VandR_Shop.Form.ShopLoginForm;
 import jp.co.example.VandR_Shop.entity.ShopAdmin;
 import jp.co.example.VandR_Shop.entity.ShopSessionInfo;
 import jp.co.example.VandR_Shop.service.impl.ShopAdminService;
+import jp.co.example.VandR_Shop.service.impl.ShopInfoService;
 
 @Controller
 public class ShopAuthController {
@@ -25,6 +26,9 @@ public class ShopAuthController {
 
 	@Autowired
 	private ShopAdminService adminService;
+	
+	@Autowired
+	private ShopInfoService shipInfo;
 
 	@Autowired
 	private ShopSessionInfo sessionInfo;
@@ -51,6 +55,7 @@ public class ShopAuthController {
 			model.addAttribute("errmsg", errorMsg);
 			return "shopLogin";
 		} else {
+			System.out.println(sAdmin.getShopAdminId());
 			sessionInfo.setLoginShop(sAdmin);
 			model.addAttribute("sAdmin", sessionInfo.getLoginShop());
 			return "shopMenu";
@@ -59,6 +64,9 @@ public class ShopAuthController {
 	
 	@RequestMapping("/shopProfile")
 	public String profile(Model model) {
+		ShopAdmin admin = sessionInfo.getLoginShop();
+		shipInfo.locator(admin.getShopAdminId());
+		model.addAttribute("shop", sessionInfo.getPrevShopProfile());
 		model.addAttribute("sAdmin",sessionInfo.getLoginShop());
 		return "shopProfile";
 	}

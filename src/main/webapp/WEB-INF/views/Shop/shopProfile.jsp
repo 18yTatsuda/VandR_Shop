@@ -48,52 +48,52 @@
 				<h1 class="h3 mb-3 font-weight-normal">店舗情報</h1>
 				<div class="row">
 					<div class="col">
-						<label>店舗ID:</label>${fn:escapeXml(shopId)}
+						<label>店舗ID:</label>${fn:escapeXml(shop.shop_id)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>店舗名:</label>${fn:escapeXml(shopName)}
+						<label>店舗名:</label>${fn:escapeXml(shop.shop_name)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>TEL:</label>${fn:escapeXml(shopTel)}
+						<label>TEL:</label>${fn:escapeXml(shop.telephone)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>営業開始時間:</label>${fn:escapeXml(shopOpen)}
+						<label>営業開始時間:</label>${fn:escapeXml(shop.starttime)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>営業終了時間:</label>${fn:escapeXml(shopClose)}
+						<label>営業終了時間:</label>${fn:escapeXml(shop.finishtime)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>定休日:</label>${fn:escapeXml(shopHoliday)}
+						<label>定休日:</label>${fn:escapeXml(shop.holiday)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>席数:</label>${fn:escapeXml(shopTotalSeats)}
+						<label>席数:</label>${fn:escapeXml(shop.numberofseats)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>料理ジャンル:</label>${fn:escapeXml(genre)}
+						<label>料理ジャンル:</label>${fn:escapeXml(shop.category_id)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-					<label>予算:</label>${fn:escapeXml(budget)}
+					<label>予算:</label>${fn:escapeXml(shop.budget)}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label>備考欄:</label>${fn:escapeXml(comment)}
+						<label>備考欄:</label>${fn:escapeXml(shop.comment)}
 					</div>
 				</div>
 				<a href="shopProfileUpdateInput" class="btn btn-warning btn-block">店舗詳細を変更する</a>
